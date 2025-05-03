@@ -24,7 +24,7 @@ int main() {
 
     SystemSpec* systemSpec=calloc(count,sizeof(SystemSpec));
     if (systemSpec == NULL) {
-        printf("메모리가 부족하여 개체를 할당할 수 없습니다. 엔터 키를 눌러 프로그램을 종료합니다.");
+        printf("메모리가 부족하여 개체를 할당할 수 없습니다.");
         system("pause");
         return -1;
     }
