@@ -8,7 +8,7 @@ bool xScanDwordf(DWORD* p);
 int main() {
 	int someInteger1;
 	bool result = xScanDwordf(&someInteger1);
-	if (result == NULL) {
+	if (result == false) {
 		printf("Error.");
 		return -1;
 	}
@@ -44,19 +44,21 @@ bool xScanDwordf(DWORD* p) {
 				break;
 			}
 			else {
+				free(buf);
 				return false;
 			}
 			count++;
 		}
 		DWORD* result = malloc(capacity*count);
-		for (auto i = 0;i < count;i++) {
+		for (DWORD i = 0;i < count;i++) {
 			*(result + i) = (*(buf + i))&0xFF;
-			for (auto j = i;j <count-1;j++)
+			for (DWORD j = i;j <count-1;j++)
 				*(result + i) = (*(result + i)) * 10;
 		}
-		for (auto i = 0;i < count;i++) {
+		for (DWORD i = 0;i < count;i++) {
 			*p += *(result + i);
 		}
 
+	free(result);
 	return true;
 }
