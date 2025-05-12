@@ -22,8 +22,8 @@ int main() {
 	DWORD charsRead=0;
 	ConsoleInputStruct consoleInputStruct = {
 		.lpNumberOfCharsRead = &charsRead,
-		.nNumberOfCharsToRead = 16,
-		.lpBuffer = calloc(16, sizeof(wchar_t)),
+		.nNumberOfCharsToRead = MAX_PATH,
+		.lpBuffer = calloc(MAX_PATH, sizeof(wchar_t)),
 		.hConsoleInput = GetStdHandle(STD_INPUT_HANDLE)
 	};
 
