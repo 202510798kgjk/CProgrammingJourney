@@ -26,13 +26,6 @@ int main() {
 		.lpBuffer = calloc(MAX_PATH, sizeof(wchar_t)),
 		.hConsoleInput = GetStdHandle(STD_INPUT_HANDLE)
 	};
-
-	if (consoleInputStruct.hConsoleInput == INVALID_HANDLE_VALUE) {
-		char* errMessage = "Cannot Resolve CreateConsoleScreenBuffer Function. Exiting...";
-		WriteFile(hStdOut, errMessage, strlen(errMessage), &bytes, 0);
-		free(consoleInputStruct.lpBuffer);
-		ExitProcess(1);
-	}
 	if (!SetConsoleMode(consoleInputStruct.hConsoleInput, ENABLE_ECHO_INPUT | ENABLE_LINE_INPUT)) {
 		char* errMessage = "Cannot Resolve SetConsoleMode Function. Exiting...";
 		WriteFile(hStdOut, errMessage, strlen(errMessage), &bytes, 0);
